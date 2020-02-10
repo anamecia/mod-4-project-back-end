@@ -27,6 +27,18 @@ class UsersController <  ApplicationController
       render json: { username:  user.username, token: issue_token({ id: user.id })}
     end
 
+    def userbooks
+      user = get_current_user
+      # byebug
+      userBooks = user.books
+     
+      if user
+          render json: userBooks
+      else
+          render json: { error: 'You are not authorized.' }, status: 401
+      end
+    end
+
     private
 
     def user_params

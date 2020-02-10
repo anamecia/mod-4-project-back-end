@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   post '/signin', to:'users#signin'
   post '/signup', to:'users#signup'
   get '/validate', to:'users#validate'
-  get '/books', to: 'books#index'
+  get '/userbooks', to: 'users#userbooks'
   
 end
