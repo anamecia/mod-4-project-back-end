@@ -22,4 +22,15 @@ class UsersController <  ApplicationController
       end
     end
 
+    def signup
+      user = User.create(user_params)
+      render json: { username:  user.username, token: issue_token({ id: user.id })}
+    end
+
+    private
+
+    def user_params
+      params.require(:user).permit(:username, :password, :password_confirmation)
+    end
+
 end 
