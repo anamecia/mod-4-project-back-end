@@ -23,7 +23,8 @@ class ApplicationController < ActionController::API
     end
 
     def secret
-        # ENV['MY_SECRET']    
-        'asdfge'
+        byebug
+        ENV['SECRET']    
+        # 'asdfge'
     end 
 end
