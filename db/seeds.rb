@@ -8,9 +8,5 @@
 
     User.create({username:'Tom', password: "password"})
 
-    Book.create({title: 'War and Peace'})
 
-    Reading.create({user_id:1, book_id:1, status:'read'})
-
-    Review.create({content:'sdfghjk', rating:3, reading_id:1})
 
