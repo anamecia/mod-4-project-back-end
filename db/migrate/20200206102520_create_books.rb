@@ -3,7 +3,7 @@ class CreateBooks < ActiveRecord::Migration[6.0]
     create_table :books do |t|
       t.string :title
       t.string :author
-      t.integer :isbn
+      t.string :google_id
       t.string :description
       t.string :image
       t.string :genre
