@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   post '/signup', to:'users#signup'
   get '/validate', to:'users#validate'
   get '/userbooks', to: 'users#userbooks'
+  post '/books', to: 'books#create'
+  post '/readings', to:'readings#create'
   
 end

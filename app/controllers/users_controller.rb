@@ -29,7 +29,6 @@ class UsersController <  ApplicationController
 
     def userbooks
       user = get_current_user
-      # byebug
       userBooks = user.books
      
       if user
