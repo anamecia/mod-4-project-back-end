@@ -41,7 +41,7 @@ class UsersController <  ApplicationController
     def userreadbooks
       user = get_current_user
       user_read_readings = user.readings.select{|reading| reading.status == 'Read'}
-      user_read_books = user_read_readings.map{|reading| reading.book}
+      user_read_books = user_read_readings.map{|reading| {book: reading.book, readingId: reading.id}}
      
       if user
           render json: user_read_books
@@ -53,7 +53,7 @@ class UsersController <  ApplicationController
     def userwanttoreadbooks
       user = get_current_user
       user_want_to_read_readings = user.readings.select{|reading| reading.status == 'Want to read'}
-      user_want_to_read_books = user_want_to_read_readings.map{|reading| reading.book}
+      user_want_to_read_books = user_want_to_read_readings.map{|reading| {book: reading.book, readingId: reading.id}}
      
       if user
           render json: user_want_to_read_books
@@ -66,7 +66,7 @@ class UsersController <  ApplicationController
       
       user = get_current_user
       user_currently_reading_readings = user.readings.select{|reading| reading.status == 'Currently Reading'}
-      user_currently_reading_books = user_currently_reading_readings.map{|reading| reading.book}
+      user_currently_reading_books = user_currently_reading_readings.map{|reading| {book: reading.book, readingId: reading.id}}
     
       if user
           render json: user_currently_reading_books
