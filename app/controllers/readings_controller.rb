@@ -1,4 +1,5 @@
 class ReadingsController < ApplicationController
+ 
 
     def create 
         reading = Reading.create(reading_params)
