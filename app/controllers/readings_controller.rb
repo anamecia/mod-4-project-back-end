@@ -7,6 +7,14 @@ class ReadingsController < ApplicationController
         render json: reading
     end
 
+    def update
+        reading = Reading.find(params[:id])
+        reading.update(status: params[:reading][:status])
+
+        render json: reading
+
+    end 
+
     private
 
     def reading_params
