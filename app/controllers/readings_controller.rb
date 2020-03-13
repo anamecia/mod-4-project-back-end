@@ -12,8 +12,17 @@ class ReadingsController < ApplicationController
         reading.update(status: params[:reading][:status])
 
         render json: reading
-
     end 
+
+   def show
+    reading = Reading.find_by(id: params[:id])
+
+        if reading
+            render json: reading, include: [:book]
+        else 
+            render json: { error: 'Invalid Book' }, status: 403
+        end
+    end
 
     private
 
