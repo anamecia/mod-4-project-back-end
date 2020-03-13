@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/userreadbooks', to: 'users#userreadbooks'
   get '/userwanttoreadbooks', to: 'users#userwanttoreadbooks'
   get '/usercurrentlyreadingbooks', to: 'users#usercurrentlyreadingbooks'
+  get '/readings/:id', to: 'readings#show'
   post '/books', to: 'books#create'
   post '/readings', to:'readings#create'
   patch '/readings/:id', to:'readings#update'
