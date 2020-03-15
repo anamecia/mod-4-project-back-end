@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/books', to: 'books#create'
   post '/readings', to:'readings#create'
   patch '/readings/:id', to:'readings#update'
+  delete '/reading/:id', to:'readings#destroy'
   
   
 end

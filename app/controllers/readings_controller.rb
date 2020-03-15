@@ -24,6 +24,16 @@ class ReadingsController < ApplicationController
         end
     end
 
+    def destroy 
+        reading = Reading.find_by(id: params[:id])
+
+        if reading
+            reading.destroy
+        else
+            render json: { error: 'Invalid Book' }, status: 403
+        end
+    end 
+
     private
 
     def reading_params
