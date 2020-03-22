@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/signup', to:'users#signup'
   get '/validate', to:'users#validate'
   get '/userreadings', to:'users#user_readings'
+
   get '/userreadbooks', to: 'users#userreadbooks'
   get '/userwanttoreadbooks', to: 'users#userwanttoreadbooks'
   get '/usercurrentlyreadingbooks', to: 'users#usercurrentlyreadingbooks'
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   post '/readings', to:'readings#create'
   patch '/readings/:id', to:'readings#update'
   delete '/reading/:id', to:'readings#destroy'
+
   
   
 end

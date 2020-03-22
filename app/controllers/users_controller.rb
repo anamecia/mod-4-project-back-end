@@ -27,6 +27,7 @@ class UsersController <  ApplicationController
       render json: { username:  user.username, token: issue_token({ id: user.id })}
     end
 
+
     def user_readings
       user = get_current_user
       user_readings = user.readings
@@ -37,6 +38,7 @@ class UsersController <  ApplicationController
           render json: { error: 'You are not authorized.' }, status: 401
       end
     end
+
 
     # def userreadbooks
     #   user = get_current_user
@@ -74,6 +76,7 @@ class UsersController <  ApplicationController
     #       render json: { error: 'You are not authorized.' }, status: 401
     #   end
     # end
+
 
 
 
