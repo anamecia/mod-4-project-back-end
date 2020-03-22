@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/signin', to:'users#signin'
   post '/signup', to:'users#signup'
   get '/validate', to:'users#validate'
+  get '/userreadings', to:'users#user_readings'
   get '/userreadbooks', to: 'users#userreadbooks'
   get '/userwanttoreadbooks', to: 'users#userwanttoreadbooks'
   get '/usercurrentlyreadingbooks', to: 'users#usercurrentlyreadingbooks'

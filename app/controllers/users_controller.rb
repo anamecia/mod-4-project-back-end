@@ -27,53 +27,55 @@ class UsersController <  ApplicationController
       render json: { username:  user.username, token: issue_token({ id: user.id })}
     end
 
-    def userbooks
+    def user_readings
       user = get_current_user
-      userBooks = user.books
+      user_readings = user.readings
      
       if user
-          render json: userBooks
+          render json: user_readings, include:[:book]
       else
           render json: { error: 'You are not authorized.' }, status: 401
       end
     end
 
-    def userreadbooks
-      user = get_current_user
-      user_read_readings = user.readings.select{|reading| reading.status == 'Read'}
-      user_read_books = user_read_readings.map{|reading| {book: reading.book, readingId: reading.id}}
+    # def userreadbooks
+    #   user = get_current_user
+    #   user_read_readings = user.readings.select{|reading| reading.status == 'Read'}
+    #   user_read_books = user_read_readings.map{|reading| {book: reading.book, readingId: reading.id}}
      
-      if user
-          render json: user_read_books
-      else
-          render json: { error: 'You are not authorized.' }, status: 401
-      end
-    end
+    #   if user
+    #       render json: user_read_books
+    #   else
+    #       render json: { error: 'You are not authorized.' }, status: 401
+    #   end
+    # end
 
-    def userwanttoreadbooks
-      user = get_current_user
-      user_want_to_read_readings = user.readings.select{|reading| reading.status == 'Want to read'}
-      user_want_to_read_books = user_want_to_read_readings.map{|reading| {book: reading.book, readingId: reading.id}}
+    # def userwanttoreadbooks
+    #   user = get_current_user
+    #   user_want_to_read_readings = user.readings.select{|reading| reading.status == 'Want to read'}
+    #   user_want_to_read_books = user_want_to_read_readings.map{|reading| {book: reading.book, readingId: reading.id}}
      
-      if user
-          render json: user_want_to_read_books
-      else
-          render json: { error: 'You are not authorized.' }, status: 401
-      end
-    end
+    #   if user
+    #       render json: user_want_to_read_books
+    #   else
+    #       render json: { error: 'You are not authorized.' }, status: 401
+    #   end
+    # end
 
-    def usercurrentlyreadingbooks
+    # def usercurrentlyreadingbooks
       
-      user = get_current_user
-      user_currently_reading_readings = user.readings.select{|reading| reading.status == 'Currently Reading'}
-      user_currently_reading_books = user_currently_reading_readings.map{|reading| {book: reading.book, readingId: reading.id}}
+    #   user = get_current_user
+    #   user_currently_reading_readings = user.readings.select{|reading| reading.status == 'Currently Reading'}
+    #   user_currently_reading_books = user_currently_reading_readings.map{|reading| {book: reading.book, readingId: reading.id}}
     
-      if user
-          render json: user_currently_reading_books
-      else
-          render json: { error: 'You are not authorized.' }, status: 401
-      end
-    end
+    #   if user
+    #       render json: user_currently_reading_books
+    #   else
+    #       render json: { error: 'You are not authorized.' }, status: 401
+    #   end
+    # end
+
+
 
     private
 
