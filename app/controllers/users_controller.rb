@@ -24,6 +24,9 @@ class UsersController <  ApplicationController
 
     def signup
       user = User.create(user_params)
+      # byebug
+      # user.avatar.attach(params[:user][:avatar])
+
       render json: { username:  user.username, token: issue_token({ id: user.id })}
     end
 
@@ -83,7 +86,7 @@ class UsersController <  ApplicationController
     private
 
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation)
+      params.require(:user).permit(:username, :password, :password_confirmation, :avatar)
     end
 
 end 
